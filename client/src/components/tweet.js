@@ -1,10 +1,11 @@
 function Tweet(props) {
-    const {tweets} = props.tweets;
-    return (
+    // const {tweets} = props.tweets;
+    return !props.tweets ? <h2>Loading...</h2> :
+    (
         <ul className="tweet">
-            {tweets && tweets.map((tweet) => (
-                <li className="tweet__item" key={tweet.id} >
-                    <p>{tweets.tweet} </p>
+            {props.tweets && props.tweets.map((tweet) => (
+                <li className="tweet__item" key={tweet.id}>
+                    <p>{tweet.tweet} </p>
                 </li>
             ))}
         </ul>

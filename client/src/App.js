@@ -6,17 +6,24 @@ import './scss/App.css';
 
 class App extends Component {
   state = {
-    tweet: {},
+    tweet: [],
+  }
+
+  componentDidMount() {
+    this.getTweetData();
   }
 
   getTweetData() {
-    axios.get(`http://localhost:8080/`)
+    axios.get(`http://localhost:8080/tweets`)
     .then((response) => {
+      // console.log(response);
       const {data} = response;
       this.setState({
         tweet: data,
       });
+      // console.log(this.state.tweet);
     })
+    .catch((error) => console.log(error));
   }
 
   render() {
