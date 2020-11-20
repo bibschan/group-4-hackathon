@@ -1,0 +1,16 @@
+.tweet {
+  display: flex;
+  justify-content: center;
+
+  &__list {
+    width: 80%;
+  }
+
+  &__item {
+    list-style: none;
+    text-align: left;
+    border: 1px dashed lightgray;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+  }
+}
