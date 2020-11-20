@@ -9,6 +9,15 @@ function list() {
     return JSON.parse(data);
 }
 
+function postATweet(tweet){
+    const currentContent = list();
+    const object = {tweet};
+    currentContent.push(object);
+    fs.writeFileSync(tweetsFile, JSON.stringify(currentContent));
+    return tweet;
+}
+
 module.exports = {
-    list
+    list,
+    postATweet
 }
