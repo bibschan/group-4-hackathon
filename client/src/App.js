@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 // import {v4 as uuidv4} from 'uuid';
 import Tweet from './components/tweet';
+import Form from './components/form';
 import './scss/App.css';
 
 class App extends Component {
@@ -25,12 +26,16 @@ class App extends Component {
     })
     .catch((error) => console.log(error));
   }
-
+handleClick(tweets){
+  console.log(tweets);
+}
   render() {
 
     return (
       <div className="app">
-          <Tweet tweets={this.state.tweet} />
+        <Form handleClick={this.handleClick}/>
+        <Tweet tweets={this.state.tweet} />
+
       </div>
     );
   }
