@@ -1,0 +1,1 @@
+//to start this server (after configuring express), use the npm start command.
