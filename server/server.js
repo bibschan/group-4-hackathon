@@ -6,7 +6,7 @@ const cors = require('cors');
 
 require('dotenv').config();
 // .env file variables are accessed via process.env object
-const { port, backend_url } = process.env;
+const { PORT, BACKEND_URL } = process.env;
 
 // Allow CORS
 app.use(cors());
@@ -14,6 +14,7 @@ app.use(cors());
 // request.body middleware
 app.use(express.json());
 
-app.listen(port, () => {
-    ora(`Server started on ${backend_url}:${port}`).start();
+// console.log(backend_url);
+app.listen(PORT, () => {
+    ora(`Server started on ${BACKEND_URL}:${PORT}`).start();
 });
