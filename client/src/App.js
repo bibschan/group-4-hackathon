@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-// import {v4 as uuidv4} from 'uuid';
+import {v4 as uuid} from 'uuid';
 import Tweet from './components/tweet';
-import Form from './components/form';
+import Form from './components/Form';
 import './scss/App.css';
 
 class App extends Component {
@@ -26,9 +26,23 @@ class App extends Component {
     })
     .catch((error) => console.log(error));
   }
-handleClick(tweets){
-  console.log(tweets);
-}
+  handleClick(data){
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/tweets',
+      data: {
+        tweet: data,
+      }
+    }).then((response) => {
+        const {data} = response;
+        this.setState({
+          id: uuid,
+          tweet: data,
+        });
+        // console.log(this.state.tweet);
+      })
+      .catch((error) => console.log(error));
+  }
   render() {
 
     return (
